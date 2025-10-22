@@ -1,0 +1,556 @@
+
+
+/* Cores principais do SINDPPENAL */
+:root {
+    --sindppenal-primary: #275940;
+    --sindppenal-primary-light: #34a85a;
+    --sindppenal-secondary: #6c757d;
+    --sindppenal-success: #198754;
+    --sindppenal-info: #0dcaf0;
+    --sindppenal-warning: #ffc107;
+    --sindppenal-danger: #dc3545;
+    --sindppenal-light: #f8f9fa;
+    --sindppenal-dark: #212529;
+}
+
+/* Override das cores primárias do Bootstrap */
+.btn-primary {
+    background-color: var(--sindppenal-primary) !important;
+    border-color: var(--sindppenal-primary) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: var(--sindppenal-primary) !important;
+    border-color: var(--sindppenal-primary) !important;
+    transform: none !important;
+}
+
+.text-primary {
+    color: var(--sindppenal-primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--sindppenal-primary) !important;
+}
+
+.border-primary {
+    border-color: var(--sindppenal-primary) !important;
+}
+
+/* Focus states personalizados */
+.form-control:focus, .form-select:focus {
+    border-color: var(--sindppenal-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(39, 89, 64, 0.25) !important;
+}
+
+/* Select2 customization */
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    min-height: 38px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--sindppenal-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(39, 89, 64, 0.25) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--sindppenal-primary) !important;
+}
+
+/* Select2 search input */
+.select2-search--dropdown .select2-search__field {
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.select2-search--dropdown .select2-search__field:focus {
+    border-color: var(--sindppenal-primary);
+    box-shadow: 0 0 0 0.2rem rgba(39, 89, 64, 0.25);
+}
+
+/* Select2 dropdown */
+.select2-dropdown {
+    border: 1px solid var(--sindppenal-primary);
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Select2 grupo de opções */
+.select2-results__group {
+    background-color: var(--sindppenal-light);
+    color: var(--sindppenal-primary);
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Select2 opções */
+.select2-results__option {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.select2-results__option:hover {
+    background-color: rgba(39, 89, 64, 0.1);
+}
+
+.select2-results__option[aria-selected="true"] {
+    background-color: var(--sindppenal-primary);
+    color: white;
+}
+
+/* Select2 placeholder */
+.select2-selection__placeholder {
+    color: #6c757d !important;
+}
+
+/* Select2 tags (múltipla seleção) */
+.select2-selection__choice {
+    background-color: var(--sindppenal-primary) !important;
+    border: 1px solid var(--sindppenal-primary) !important;
+    color: white !important;
+    border-radius: 0.25rem !important;
+}
+
+/* Padrão de Cards - remover animação de hover */
+.sindppenal-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Remover hover do card - sem animação de "subir" */
+.sindppenal-card:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transform: none !important;
+}
+
+/* Padrão de Headers */
+.sindppenal-header {
+    background-color: var(--sindppenal-light);
+    border-bottom: 2px solid var(--sindppenal-primary);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Padrão de Botões - remover todas as animações */
+.sindppenal-btn-group .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: none !important;
+    transform: none !important;
+}
+
+/* Aplicar cor padrão #275940 para todos os botões outline */
+.btn-outline-primary, .btn-outline-success, .btn-outline-info {
+    color: var(--sindppenal-primary) !important;
+    border-color: var(--sindppenal-primary) !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active,
+.btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success:active,
+.btn-outline-info:hover, .btn-outline-info:focus, .btn-outline-info:active {
+    background-color: var(--sindppenal-primary) !important;
+    border-color: var(--sindppenal-primary) !important;
+    color: white !important;
+    transform: none !important;
+}
+
+/* SVGs nas ações rápidas - verde por padrão, branco no hover */
+.btn-outline-primary .svg-icon,
+.btn-outline-success .svg-icon,
+.btn-outline-info .svg-icon {
+    filter: invert(22%) sepia(28%) saturate(1831%) hue-rotate(98deg) brightness(95%) contrast(91%) !important;
+    transition: filter 0.2s ease !important;
+}
+
+.btn-outline-primary:hover .svg-icon, .btn-outline-primary:focus .svg-icon, .btn-outline-primary:active .svg-icon,
+.btn-outline-success:hover .svg-icon, .btn-outline-success:focus .svg-icon, .btn-outline-success:active .svg-icon,
+.btn-outline-info:hover .svg-icon, .btn-outline-info:focus .svg-icon, .btn-outline-info:active .svg-icon {
+    filter: invert(1) brightness(100%) !important;
+}
+
+/* Remover animações hover de todos os botões */
+.btn:hover, .btn:focus, .btn:active {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Padrão de Tabelas */
+.sindppenal-table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.sindppenal-table th {
+    background-color: var(--sindppenal-primary);
+    color: white;
+    border: none;
+}
+
+/* Padrão de Alertas */
+.sindppenal-alert {
+    border: none;
+    border-radius: 0.75rem;
+    border-left: 5px solid;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sindppenal-alert.alert-primary {
+    border-left-color: var(--sindppenal-primary);
+}
+
+.sindppenal-alert.alert-success {
+    border-left-color: var(--sindppenal-success);
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.15) 0%, rgba(25, 135, 84, 0.05) 100%);
+    border: 2px solid rgba(25, 135, 84, 0.2);
+}
+
+.sindppenal-alert.alert-danger {
+    border-left-color: var(--sindppenal-danger);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.15) 0%, rgba(220, 53, 69, 0.05) 100%);
+    border: 2px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Animação especial para notificações de sucesso */
+.sindppenal-alert.alert-success .alert-heading {
+    color: #155724;
+    font-weight: 700;
+}
+
+.sindppenal-alert.alert-danger .alert-heading {
+    color: #721c24;
+    font-weight: 700;
+}
+
+/* Efeito de pulso sutil para ícones de sucesso */
+.sindppenal-alert.alert-success i.bi-check-circle-fill {
+    animation: subtle-pulse 2s infinite;
+}
+
+/* Efeito de celebração para notificações de sucesso */
+.sindppenal-alert.celebrating {
+    position: relative;
+    overflow: visible;
+}
+
+.sindppenal-alert.celebrating::before {
+    content: '🎉';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    animation: celebration-bounce 1s ease-in-out infinite;
+}
+
+.sindppenal-alert.celebrating::after {
+    content: '✨';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    font-size: 1.2rem;
+    animation: celebration-twinkle 1.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes subtle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes celebration-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-5deg); }
+    75% { transform: translateY(-3px) rotate(5deg); }
+}
+
+@keyframes celebration-twinkle {
+    0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+/* Padrão de Formulários */
+.sindppenal-form .form-label {
+    font-weight: 600;
+    color: var(--sindppenal-dark);
+    margin-bottom: 0.5rem;
+}
+
+.sindppenal-form .form-control,
+.sindppenal-form .form-select {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Background padrão do sistema */
+.sindppenal-bg {
+    background-color: var(--sindppenal-light);
+    min-height: 100vh;
+}
+
+/* Navbar customizada */
+.sindppenal-navbar {
+    background-color: var(--sindppenal-primary) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sindppenal-navbar .navbar-brand,
+.sindppenal-navbar .nav-link {
+    color: white !important;
+}
+
+.sindppenal-navbar .nav-link:hover {
+    color: var(--sindppenal-primary-light) !important;
+}
+
+/* Utilidades customizadas */
+.text-sindppenal {
+    color: var(--sindppenal-primary) !important;
+}
+
+.bg-sindppenal {
+    background-color: var(--sindppenal-primary) !important;
+}
+
+.border-sindppenal {
+    border-color: var(--sindppenal-primary) !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sindppenal-header {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .sindppenal-btn-group .btn {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Estilos para validação de formulários */
+.is-invalid.select2-container .select2-selection--single,
+.is-invalid.select2-container .select2-selection--multiple {
+    border-color: #dc3545 !important;
+}
+
+.is-valid.select2-container .select2-selection--single,
+.is-valid.select2-container .select2-selection--multiple {
+    border-color: #198754 !important;
+}
+
+/* Alerta de validação personalizado */
+.validation-alert {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.validation-errors {
+    padding-left: 1.2rem;
+}
+
+.validation-errors li {
+    margin-bottom: 0.25rem;
+}
+
+/* Remover TODAS as animações de hover e transform dos elementos */
+.card:hover, .btn:hover, .sindppenal-card:hover {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Garantir que botões não tenham elevação ou movimento */
+.btn, .card {
+    transform: none !important;
+}
+
+/* Classes para SVGs */
+.svg-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: none; /* Cor original do SVG */
+    line-height: 1;
+    top: -1px;
+    position: relative;
+}
+
+.svg-icon-white {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: brightness(0) invert(1); /* SVG branco */
+    line-height: 1;
+    top: -1px;
+    position: relative;
+}
+
+/* Modificadores de tamanho para ambas as classes */
+.svg-icon.size-sm, .svg-icon-white.size-sm {
+    width: 16px;
+    height: 16px;
+}
+
+.svg-icon.size-md, .svg-icon-white.size-md {
+    width: 20px;
+    height: 20px;
+}
+
+.svg-icon.size-lg, .svg-icon-white.size-lg {
+    width: 24px;
+    height: 24px;
+}
+
+.svg-icon.size-xl, .svg-icon-white.size-xl {
+    width: 32px;
+    height: 32px;
+}
+
+/* Customização da paginação ativa */
+.pagination .page-item.active .page-link {
+    background-color: #275940 !important;
+    border-color: #275940 !important;
+    color: #ffffff !important;
+}
+
+/* Notificação personalizada */
+.notificacao-custom {
+    background: linear-gradient(135deg, #4c9b74 0%, #5aa881 100%);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(76, 155, 116, 0.25);
+    color: white;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.notificacao-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.notificacao-sucesso .notificacao-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.notificacao-sucesso .notificacao-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+.notificacao-sucesso .notificacao-texto {
+    margin: 0 0 15px 0;
+    opacity: 0.95;
+    line-height: 1.4;
+}
+
+.notificacao-sucesso .notificacao-subtexto {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0 0 20px 0;
+}
+
+.notificacao-acoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.notificacao-acoes .btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.notificacao-acoes .btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notificacao-acoes .btn i {
+    margin-right: 6px;
+}
+
+/* Animação de entrada */
+@keyframes notificacao-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.notificacao-custom {
+    animation: notificacao-slide-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+    .notificacao-custom {
+        padding: 15px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .notificacao-acoes {
+        flex-direction: column;
+    }
+    
+    .notificacao-acoes .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
