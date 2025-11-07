@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinação de Permuta Encontrada - SINDPPENAL</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #000000; 
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .email-container {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header { 
+            background-color: #275940; 
+            color: #ffffff; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        .header h1 { 
+            margin: 0; 
+            font-size: 28px; 
+            font-weight: 700;
+        }
+        .header p { 
+            margin: 10px 0 0 0; 
+            font-size: 16px; 
+            opacity: 0.9;
+        }
+        .content { 
+            padding: 30px; 
+        }
+        .alert-success {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-left: 5px solid #275940;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .alert-title {
+            margin-top: 0; 
+            color: #275940;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .section-title {
+            color: #275940; 
+            border-bottom: 2px solid #275940; 
+            padding-bottom: 10px; 
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .card.sindppenal-card {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .card-header.bg-light {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px 20px;
+        }
+        .card-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #275940;
+            margin: 0;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .row {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .col-lg-5 {
+            flex: 0 0 40%;
+            max-width: 40%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        .col-lg-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            padding: 0 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .card.h-100 {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            height: 100%;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .card.h-100 .card-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title.text-sindppenal {
+            font-weight: 700;
+            color: #275940;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #275940;
+            padding-bottom: 6px;
+        }
+        .card-text {
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0;
+            flex: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .card-text strong {
+            color: #495057;
+            font-weight: 600;
+        }
+        .text-muted {
+            color: #6c757d;
+        }
+        .badge.bg-success {
+            background-color: #275940;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+            display: inline-block;
+            word-wrap: break-word;
+            text-align: center;
+            max-width: 100%;
+        }
+        .py-3 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .footer { 
+            background-color: #275940; 
+            color: #ffffff;
+            padding: 25px; 
+            text-align: center; 
+            font-size: 14px;
+        }
+        .info-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .info-box h4 {
+            color: #856404; 
+            margin-top: 0;
+        }
+        .info-box p {
+            color: #856404;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        .info-box a {
+            color: #275940; 
+            text-decoration: none; 
+            font-weight: 600;
+        }
+        .footer-subtitle {
+            margin: 0; 
+            font-size: 12px; 
+            opacity: 0.8;
+        }
+        .destaque {
+            color: #275940;
+            font-weight: 600;
+        }
+        
+        /* Responsividade para email */
+        @media (max-width: 768px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            .content {
+                padding: 15px;
+            }
+            .row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .col-lg-5, .col-lg-2 {
+                flex: none;
+                max-width: 100%;
+                width: 100%;
+                margin-bottom: 15px;
+                padding: 0;
+            }
+            .col-lg-2 {
+                order: 2;
+                min-height: 60px;
+            }
+            .card.h-100 {
+                height: auto;
+            }
+            .badge.bg-success {
+                font-size: 10px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class='email-container'>
+        <div class='header'>
+            <h1>Boa Notícia, {{NOME_FILIADO}}!</h1>
+            <p>Uma combinação de permuta foi encontrada para você</p>
+            <p><small>Notificação gerada em <strong>{{DATA}}</strong></small></p>
+        </div>
+        
+        <div class='content'>
+            <div class='alert-success'>
+                <h3 class="alert-title">Combinação Encontrada!</h3>
+                <p>Temos uma boa notícia! Foi encontrada uma possível combinação de permuta para você no sistema SINDPPENAL.</p>
+            </div>
+
+            <h3 class="section-title">
+                Sua Solicitação de Permuta
+            </h3>
+            
+            <div class='card sindppenal-card'>
+                <div class='card-header bg-light'>
+                    <h5 class='card-title'>
+                        Combinação Disponível
+                    </h5>
+                </div>
+                <div class='card-body'>
+                    <div style='text-align: center; padding: 20px;'>
+                        <div class='card h-100' style='max-width: 400px; margin: 0 auto;'>
+                            <div class='card-body'>
+                                <h6 class='card-title text-sindppenal'>{{NOME_FILIADO}}</h6>
+                                <p class='card-text'>
+                                    <strong>Sua unidade atual:</strong> <span class='destaque'>{{MINHA_ORIGEM}}</span><br>
+                                    <strong>Status:</strong> <span style='color: #28a745; font-weight: 600;'>Combinação Disponível</span>
+                                </p>
+                                <div class='badge bg-success' style='margin-top: 10px;'>
+                                    Permuta Encontrada
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='info-box'>
+                <h4>Próximos Passos</h4>
+                <p><strong>1.</strong> Entre em contato com o SINDPPENAL o mais rápido possível</p>
+                <p><strong>2.</strong> Informe que recebeu esta notificação de combinação</p>
+                <p><strong>3.</strong> Nossos funcionários irão fornecer mais detalhes e auxiliar no processo</p>
+                <p style='margin-top: 15px;'><strong>Contato do Sindicato:</strong></p>
+                <p><strong>Email:</strong> secretaria@sindppenal.com.br</p>
+                <p><strong>Telefone:</strong> (27) 3025-2337</p>
+                <p><strong>Celular:</strong> (27) 3025-2337</p>
+                <p><strong>Horário:</strong> Segunda à Sexta, 9h às 17h</p>
+            </div>
+        </div>
+        
+        <div class='footer'>
+            <p><strong>SINDPPENAL - Sindicato dos Policiais Penais do Estado do Espírito Santo</strong></p>
+            <p>Sistema Automatizado de Gerenciamento de Permutas</p>
+            <p class="footer-subtitle">
+                Notificação enviada em <strong>{{DATA}}</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

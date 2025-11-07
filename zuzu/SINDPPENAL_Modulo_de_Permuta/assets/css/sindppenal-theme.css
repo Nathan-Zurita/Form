@@ -554,3 +554,63 @@
         justify-content: center;
     }
 }
+
+/* Dashboard Interactive Links - Remove underlines */
+.dashboard-link-item {
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    display: block;
+    color: inherit;
+}
+
+.dashboard-link-item:hover,
+.dashboard-link-item:focus,
+.dashboard-link-item:active,
+.dashboard-link-item:visited {
+    text-decoration: none !important;
+}
+
+.dashboard-link-item .hover-item {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    border-radius: 0.375rem;
+}
+
+.dashboard-link-item:hover .hover-item {
+    background-color: #f8f9fa !important;
+}
+
+.dashboard-link-item:hover .fw-medium {
+    color: var(--sindppenal-primary) !important;
+}
+
+.dashboard-link-item:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(39, 89, 64, 0.25);
+}
+
+/* Estilos para os gráficos do dashboard */
+#destinosChart, #cidadesChart {
+    height: 300px !important;
+    max-height: 300px;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* Responsividade para os gráficos em telas menores */
+@media (max-width: 768px) {
+    #destinosChart, #cidadesChart {
+        height: 250px !important;
+        max-height: 250px;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}

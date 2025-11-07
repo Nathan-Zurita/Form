@@ -48,8 +48,6 @@ $(document).ready(function() {
         const isEditMode = $('#origem option').length > 1 || $('#destino option').length > 0;
         
         if (isEditMode) {
-            console.log('🔧 Modo EDIÇÃO detectado - Configurando Select2 com opções pré-carregadas...');
-            
             // Para modo de edição, configurar Select2 simples sem AJAX
             $('#origem').select2({
                 placeholder: "Selecione a unidade de origem",
@@ -63,20 +61,7 @@ $(document).ready(function() {
                 width: '100%'
             });
             
-            console.log('✅ Select2 configurado para edição');
         } else {
-            console.log('🔧 Modo CRIAÇÃO detectado - Configurando Select2 com AJAX...');
-            
-            // Testar API primeiro
-            $.get('../api/api_unidades.php')
-                .done(function(data) {
-                    console.log('✅ API funcionando!', data.length, 'grupos encontrados');
-                })
-                .fail(function(xhr, status, error) {
-                    console.error('❌ Erro na API:', status, error);
-                });
-
-            // Configurar Select2 para origem (seleção única)
             $('#origem').select2({
                 placeholder: "Selecione a unidade de origem",
                 allowClear: true,
@@ -88,14 +73,12 @@ $(document).ready(function() {
                     delay: 250,
                     cache: true,
                     data: function (params) {
-                        console.log('🔍 Admin Origem - Buscando:', params.term || 'todas');
                         return {
                             q: params.term || '',
                             page: params.page || 1
                         };
                     },
                     processResults: function (data) {
-                        console.log('📄 Admin Origem - Processados:', data.length, 'grupos');
                         return {
                             results: data
                         };
@@ -126,14 +109,12 @@ $(document).ready(function() {
                     delay: 250,
                     cache: true,
                     data: function (params) {
-                        console.log('🔍 Admin Destinos - Buscando:', params.term || 'todas');
                         return {
                             q: params.term || '',
                             page: params.page || 1
                         };
                     },
                     processResults: function (data) {
-                        console.log('📄 Admin Destinos - Processados:', data.length, 'grupos');
                         return {
                             results: data
                         };
@@ -152,16 +133,13 @@ $(document).ready(function() {
                 }
             });
             
-            console.log('✅ Select2 configurado para criação');
         }
 
         // Event listeners para debugging
         $('#origem, #destino').on('select2:open', function() {
-            console.log('📂 Admin Select2 aberto:', this.id);
         });
 
         $('#origem, #destino').on('select2:select', function(e) {
-            console.log('✅ Admin Seleção:', e.params.data);
         });
 
         // Máscara para telefone - máximo 11 dígitos
@@ -202,7 +180,6 @@ $(document).ready(function() {
             const destinoValues = destinoSelect.val();
             
             if (destinoValues && destinoValues.length > 0) {
-                console.log('🎯 Admin Destinos selecionados:', destinoValues);
                 
                 // Criar input hidden com valores concatenados
                 const destinoHidden = $('<input>').attr({
@@ -217,12 +194,10 @@ $(document).ready(function() {
                 // Adicionar input hidden ao form
                 $(this).append(destinoHidden);
                 
-                console.log('✅ Admin Destinos convertidos para string:', destinoValues.join(', '));
             }
             
             return true; // Permitir envio do formulário
         });
     }
     
-    console.log('🎉 Configuração completa do Admin Contatos finalizada!');
 });

@@ -5,12 +5,6 @@
 
 $(document).ready(function() {
     
-    console.log('Admin Unidades JS carregado'); // Debug
-    
-    // Debug: Verificar se os formulários existem na página
-    console.log('Formulários toggle-status encontrados:', $('.form-toggle-status').length);
-    console.log('Formulários delete encontrados:', $('.form-delete-unidade').length);
-    
     // Auto-focus no campo de busca quando não há dados sendo editados
     const isListView = window.location.search.includes('action=list') || 
                       (!window.location.search.includes('action=') && 
@@ -81,13 +75,11 @@ $(document).ready(function() {
     // Confirmação personalizada para exclusão usando event delegation
     $(document).on('submit', '.form-delete-unidade', function(e) {
         e.preventDefault();
-        console.log('Formulário delete-unidade enviado'); // Debug
         
         const form = this;
         const codigo = $(form).closest('tr').find('td strong').text();
         
         if (confirm(`Tem certeza que deseja excluir a unidade "${codigo}"?\n\nEsta ação não pode ser desfeita e a unidade será removida permanentemente do sistema.`)) {
-            console.log('Confirmado - excluindo unidade'); // Debug
             form.submit();
         }
     });
@@ -95,23 +87,15 @@ $(document).ready(function() {
     // Versão mais simples e direta
     $(document).on('submit', '.form-toggle-status', function(e) {
         e.preventDefault();
-        console.log('=== TOGGLE STATUS FORM SUBMIT ===');
         
         const form = $(this);
         const codigo = form.closest('tr').find('td:first strong').text();
         const isAtivo = form.find('input[name="ativo"]').val() === '1';
         const action = isAtivo ? 'desativar' : 'ativar';
         
-        console.log('Código:', codigo);
-        console.log('Status atual:', isAtivo ? 'ativo' : 'inativo');
-        console.log('Ação:', action);
-        
         if (confirm(`Confirmar ${action} a unidade "${codigo}"?`)) {
-            console.log('Confirmado - enviando formulário');
             // Submeter o formulário real
             this.submit();
-        } else {
-            console.log('Cancelado pelo usuário');
         }
     });
 

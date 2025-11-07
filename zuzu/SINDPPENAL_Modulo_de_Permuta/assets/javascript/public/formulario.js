@@ -158,15 +158,10 @@ $(document).ready(function() {
 
     // Processamento do formulário para múltiplas seleções
     $('#formPermuta').on('submit', function(e) {
-        console.log('Formulário sendo enviado...');
-        
         // Verificar se o formulário é válido primeiro
         if (!this.checkValidity()) {
-            console.log('Formulário inválido, não mostrando alert');
             return true; // Deixa a validação nativa do browser funcionar
         }
-        
-        console.log('Formulário válido, mostrando alert');
         
         // Se chegou aqui, o formulário é válido
         // Converter múltiplas seleções em string para o PHP
