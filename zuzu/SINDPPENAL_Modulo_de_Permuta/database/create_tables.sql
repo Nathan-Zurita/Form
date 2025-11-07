@@ -1,6 +1,3 @@
--- Script para criar a tabela de contatos seguindo o padrão especificado
--- Execute este script no MySQL Workbench
-
 CREATE DATABASE IF NOT EXISTS sindppenal_permutacao 
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -59,6 +56,7 @@ CREATE TABLE contatos (
     nome VARCHAR(255),
     num_funcional VARCHAR(20),
     telefone VARCHAR(255),
+    sexo ENUM('M', 'F') NULL COMMENT 'M = Masculino, F = Feminino',
     origem VARCHAR(255),
     destino VARCHAR(255),
     created DATETIME,
@@ -77,6 +75,17 @@ CREATE TABLE administradores (
     created DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--=======================================================================================--
+
+USE sindppenal_permutacao;
+
+ALTER TABLE contatos 
+ADD COLUMN sexo ENUM('M', 'F') NULL 
+COMMENT 'M = Masculino, F = Feminino' 
+AFTER telefone;
+
+
 
 -- Inserir administrador padrão (usuário: admin, senha: admin123)
 -- A senha será atualizada via script PHP para garantir hash correto
