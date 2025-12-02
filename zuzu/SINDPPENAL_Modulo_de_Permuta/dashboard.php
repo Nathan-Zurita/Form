@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/config/autoload.php';
 
-Auth::requireAuth();
+Auth::requireAuth();xcvhxhcjkvghxcvjhcjv
 
 $adminContatos = new AdminContatos();
 $adminUnidades = new AdminUnidades();
