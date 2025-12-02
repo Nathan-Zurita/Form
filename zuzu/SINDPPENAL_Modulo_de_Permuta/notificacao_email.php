@@ -2,7 +2,7 @@
 /**
  * Sistema de Gerenciamento de Notificações por Email
  * Permite o envio manual e verificação de notificações de permuta
- * Acesse: /admin/nosdvkhsvkçjhfvjhfvjtificacao_email.php
+ * Acesse: /admin/notificacao_email.php
  */
 
 require_once __DIR__ . '/config/autoload.php';

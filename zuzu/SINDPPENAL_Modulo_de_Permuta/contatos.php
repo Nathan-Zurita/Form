@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/config/autoload.php';
 
-Auth::requireAuth();xckjvxckvjhxcvjhcxvghcvghxcv
+Auth::requireAuth();
 
 $adminContatos = new AdminContatos();
 $mensagem = '';
